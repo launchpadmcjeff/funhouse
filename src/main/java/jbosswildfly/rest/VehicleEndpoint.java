@@ -23,7 +23,7 @@ import javax.ws.rs.core.UriBuilder;
 import jbosswildfly.model.Vehicle;
 
 /**
- * 
+ * fuck
  */
 @Stateless
 @Path("/vehicles")
