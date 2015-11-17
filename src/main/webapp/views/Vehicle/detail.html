@@ -1,0 +1,33 @@
+<header ng-switch on="$location.path().indexOf('/Vehicles/new') > -1">
+    <h3 ng-switch-when="true">Create a new Vehicle</h3>
+    <h3 ng-switch-when="false">View or edit Vehicle</h3>
+</header>
+<form id="VehicleForm" name="VehicleForm" class="form-horizontal" role="form">
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    
+
+    <div class="form-group" ng-class="{'has-error': VehicleForm.make.$invalid}">
+        <label for="make" class="col-sm-2 control-label">Make</label>
+        <div id="makeControls" class="col-sm-10">
+            <input id="make" name="make" type="text" class="form-control" ng-model="vehicle.make" placeholder="Enter the Vehicle Make"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': VehicleForm.model.$invalid}">
+        <label for="model" class="col-sm-2 control-label">Model</label>
+        <div id="modelControls" class="col-sm-10">
+            <input id="model" name="model" type="text" class="form-control" ng-model="vehicle.model" placeholder="Enter the Vehicle Model"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveVehicle" name="saveVehicle" class="btn btn-primary" ng-disabled="isClean() || VehicleForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteVehicle" name="deleteVehicle" class="btn btn-danger" ng-show="vehicle.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>
