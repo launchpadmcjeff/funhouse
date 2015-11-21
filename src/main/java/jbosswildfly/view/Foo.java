@@ -1,8 +1,8 @@
-package jbosswildfly.jsf;
+package jbosswildfly.view;
 
 import javax.inject.Named;
 
-@Named("bean")
+@Named
 public class Foo {
 
 	private String value;
