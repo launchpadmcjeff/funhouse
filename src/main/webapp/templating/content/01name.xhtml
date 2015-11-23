@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
+Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <h:html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -7,10 +7,13 @@
 <h:head></h:head>
 <h:body>
 	<ui:composition>
-		<p>What is your name?</p>
-		<p>
-			<a href="step02_birthday.xhtml">Next</a>
-		</p>
+		<h:form id="form">
+			<p>What is your name?</p>
+			<h:commandLink value="Next" action="#{userInfo.captureUsername}"
+				id="next">
+				<f:ajax render="content form" />
+			</h:commandLink>
+		</h:form>
 	</ui:composition>
 </h:body>
 </h:html>

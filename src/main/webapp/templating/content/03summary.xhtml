@@ -7,7 +7,13 @@
 <h:head></h:head>
 <h:body>
 	<ui:composition>
-		<p>Thanks you for the information.</p>
+		<h:form id="form">
+			<p>Thanks you for the information.</p>
+			<h:commandLink value="Again" action="#{userInfo.backToLandingPage}"
+				id="again">
+				<f:ajax render="content form" />
+			</h:commandLink>
+		</h:form>
 	</ui:composition>
 </h:body>
 </h:html>

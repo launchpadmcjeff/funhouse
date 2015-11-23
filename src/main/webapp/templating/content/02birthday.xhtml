@@ -7,11 +7,13 @@
 <h:head></h:head>
 <h:body>
 	<ui:composition>
-		<p>What year were you born?</p>
-		<p>
-			<a href="step03_completed.xhtml">Next</a>
-		</p>
+		<h:form id="form">
+			<p>What year were you born?</p>
+			<h:commandLink value="Next" action="#{userInfo.captureBirthday}"
+				id="next">
+				<f:ajax render="content form" />
+			</h:commandLink>
+		</h:form>
 	</ui:composition>
-
 </h:body>
 </h:html>
