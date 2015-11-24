@@ -1,12 +1,13 @@
-package jbosswildfly.view;
+package jbosswildfly.jsflifecycle;
 
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
-public class Phaser implements PhaseListener {
+public class FooPhaseListener implements PhaseListener {
+	private static final long serialVersionUID = 1L;
 
-	public Phaser() {
+	public FooPhaseListener() {
 		// TODO Auto-generated constructor stub
 	}
 

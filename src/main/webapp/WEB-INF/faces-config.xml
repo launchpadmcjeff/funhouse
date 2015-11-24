@@ -3,15 +3,14 @@
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
  <converter>
-  <converter-id>fc</converter-id>
-  <converter-class>jbosswildfly.view.FooConverter</converter-class>
+  <converter-id>fooConverter</converter-id>
+  <converter-class>jbosswildfly.jsflifecycle.FooConverter</converter-class>
  </converter>
- <application>
-  <default-validators>
-   <validator-id>Validator</validator-id>
-  </default-validators>
- </application>
+ <validator>
+  <validator-id>fooValidator</validator-id>
+  <validator-class>jbosswildfly.jsflifecycle.FooValidator</validator-class>
+ </validator>
  <lifecycle>
-  <phase-listener id="PH">jbosswildfly.view.Phaser</phase-listener>
+  <phase-listener id="PH">jbosswildfly.jsflifecycle.FooPhaseListener</phase-listener>
  </lifecycle>
 </faces-config>
