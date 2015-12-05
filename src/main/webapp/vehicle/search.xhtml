@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{vehicleBean.page}'/>
+		<f:event type="preRenderView" listener='#{vehicleBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Vehicle entities"/>
+
+	<ui:define name="header">
+		Vehicle
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Vehicle entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="vehicleBeanExampleMake" value="Make:"/>
+						<h:panelGroup>
+							<h:inputText id="vehicleBeanExampleMake" value="#{vehicleBean.example.make}"/>
+							<h:message for="vehicleBeanExampleMake" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="vehicleBeanExampleModel" value="Model:"/>
+						<h:panelGroup>
+							<h:inputText id="vehicleBeanExampleModel" value="#{vehicleBean.example.model}"/>
+							<h:message for="vehicleBeanExampleModel" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{vehicleBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{vehicleBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="vehicleBeanPageItems" styleClass="data-table" value="#{vehicleBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Make"/>
+					</f:facet>
+					<h:link outcome="/vehicle/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMake" value="#{_item.make}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Model"/>
+					</f:facet>
+					<h:link outcome="/vehicle/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModel" value="#{_item.model}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{vehicleBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

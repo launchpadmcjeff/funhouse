@@ -34,7 +34,7 @@ public class FooBean {
 
 	public void action() {
 		outputValue = inputValue;
-		log("succes");
+		log("success");
 	}
 
 	// Getters/setters
@@ -81,6 +81,6 @@ public class FooBean {
 	private void log(Object object) {
 		String methodName = Thread.currentThread().getStackTrace()[2]
 				.getMethodName();
-		System.out.println("MyBean " + methodName + ": " + object);
+		System.out.println("FooBean " + methodName + ": " + object);
 	}
 }

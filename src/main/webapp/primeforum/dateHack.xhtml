@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<p:messages autoUpdate="true"></p:messages>
+	<h:form id="form1">
+		<p:growl id="growler" />
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+			<h:outputLabel for="a" value="A: " />
+			<p:inputText id="a" value="#{dateHack.a}">
+				<f:convertDateTime type="date" dateStyle="short" />
+			</p:inputText>
+
+			<h:outputLabel for="b" value="B: " />
+			<p:calendar id="b" value="#{dateHack.b}" mode="popup"
+				navigator="true" />
+
+			<p:commandButton id="submit" value="O.K." icon="ui-icon-check"
+				action="#{dateHack.ok}" />
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

@@ -22,9 +22,6 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import jbosswildfly.model.Vehicle;
 
-/**
- * fuck goddammit
- */
 @Stateless
 @Path("/vehicles")
 public class VehicleEndpoint

@@ -1,0 +1,74 @@
+#page {
+	width: 1000px;
+	margin: 0
+}
+
+#header-container {
+	height: 100px;
+	background: #0055FA
+}
+
+#header {
+	background: #0055FA;
+	width: 1000px;
+	height: 100%;
+	margin: 0
+}
+
+#messages-container {
+	height: 50px;
+	margin: 0;
+	display: inline-block;
+}
+
+#messages {
+	background: #44EE00;
+	width: 1000px;
+	height: 100%;
+	margin: 0;
+	display: inline-block;
+}
+
+#content-container {
+	height: 100%;
+	margin: 0
+}
+
+#content {
+	float: right;
+	background: #EDEDED;
+	width: 70px;
+	height: 100%;
+	margin: 0
+}
+
+#sidebar {
+	float: right;
+	background: #FF1100;
+	width: 30px;
+	height: 100%;
+	margin: 0
+}
+
+#sidebar1 {
+	float: right;
+	background: #FF9900;
+	width: 30px;
+	height: 100%;
+	margin: 0
+}
+
+#footer-container {
+	height: 100px;
+	margin: 0;
+	clear: both;
+	display: inline-block;
+}
+
+#footer {
+	background: #0055FA;
+	width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+	display: inline-block;
+}

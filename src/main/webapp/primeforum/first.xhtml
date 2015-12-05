@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<p:messages id="msg" autoUpdate="false" binding="#{firstBean.msg}" />
+	<h:form id="form1" binding="#{firstBean.form1}">
+		<p:panelGrid id="grid" columns="2">
+			<h:outputLabel for="name" value="Name: " />
+			<p:inputText id="name" value="#{firstBean.nameValue}"
+				binding="#{firstBean.name}"></p:inputText>
+			<h:outputLabel for="description" value="Description: " />
+			<p:inputTextarea id="description" value="#{firstBean.description}"></p:inputTextarea>
+			<f:facet name="footer">
+				<p:commandButton id="ok" action="#{firstBean.okAction}" value="ok!"
+					binding="#{firstBean.okCommandButton}"
+					actionListener="#{firstBean.okActionListener}"></p:commandButton>
+			</f:facet>
+		</p:panelGrid>
+	</h:form>
+	<h:form id="form2">
+
+	</h:form>
+	<p:commandButton id="showDialog1Btn" value="Show!" type="button"
+		binding="#{firstBean.showDialog1Btn}"
+		onclick="PF('dialog1WidgetVar').show()"></p:commandButton>
+	<p:commandButton id="hideDialog1Btn" value="Hide!" type="button"
+		onclick="PF('dialog1WidgetVar').hide()"></p:commandButton>
+	<p:dialog id="dialog1" rendered="true" hideEffect="explode"
+		onHide="console.log('onHide')" onShow="console.log('onShow')"
+		minimizable="true" maximizable="true" showEffect="fade"
+		binding="#{firstBean.dialogBinding}" widgetVar="dialog1WidgetVar"
+		visible="false" header="Dialog1 Header" draggable="true"
+		resizable="true" modal="false" width="auto" height="auto"
+		minWidth="150" footer="Dialog1 Footer">
+		<h:outputText value="Resistance to PrimeFaces is Futile!" />
+		<p:ajax event="close" listener="#{firstBean.handleClose}" update="msg" />
+		<p:ajax event="maximize" listener="#{firstBean.handleMaximize}"
+			update="msg" />
+		<p:ajax event="minimize" listener="#{firstBean.handleMinimize}"
+			update="msg" />
+		<p:ajax event="move" listener="#{firstBean.handleMove}" update="msg" />
+		<p:ajax event="restoreMinimize"
+			listener="#{firstBean.handleRestoreMinimize}" update="msg" />
+		<p:ajax event="restoreMaximize"
+			listener="#{firstBean.handleRestoreMaximize}" update="msg" />
+	</p:dialog>
+</body>
+</html>

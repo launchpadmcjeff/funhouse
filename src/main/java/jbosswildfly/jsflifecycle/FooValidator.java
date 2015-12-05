@@ -16,7 +16,7 @@ public class FooValidator implements Validator {
 	@Override
 	public void validate(FacesContext context, UIComponent component,
 			Object value) throws ValidatorException {
-		System.out.println("validate: " + value);
+		System.out.println("FooValidator validate: " + value);
 		
 	}
 

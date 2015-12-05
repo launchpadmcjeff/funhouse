@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<div id="content">
+		<h:form id="form">
+			<h:commandButton value="Toggle" action="#{bean.toggleShowMe}" actionListener="#{bean.increment}" />
+			<p:remoteCommand name="increment" actionListener="#{bean.increment}" />
+			<h:outputText id="count" value="#{bean.count}" />
+		</h:form>
+
+
+		<h:panelGrid rendered="#{bean.showMe}">
+			<h:outputText value="Show me!" />
+		</h:panelGrid>
+	</div>
+</h:body>
+</html>
