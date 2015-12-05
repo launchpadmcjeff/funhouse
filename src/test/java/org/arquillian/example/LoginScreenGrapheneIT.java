@@ -21,6 +21,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +29,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @RunWith(Arquillian.class)
-public class LoginScreenGrapheneTest {
+public class LoginScreenGrapheneIT {
 	private static final String USER_NAME = "demo";
 	private static final String USER_PASSWORD = "demo";
 

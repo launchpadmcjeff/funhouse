@@ -11,8 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-@Ignore("Failing on Openshift")
-public class ChromeWebDriverTest {
+public class ChromeWebDriverIT {
 
 	@Before
 	public void setUp() throws Exception {
