@@ -1,25 +1,19 @@
 package jbosswildfly.view;
 
+import javax.inject.Inject;
+
 import jbosswildfly.model.Person;
 import jbosswildfly.repository.PersonRepo;
-import jbosswildfly.view.PersonBean;
-
-import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.logmanager.formatters.Formatters;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.junit.After;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static org.junit.Assert.*;
-import static org.hamcrest.core.Is.*;
 
 @RunWith(Arquillian.class)
 public class PersonBeanIT {
@@ -44,7 +38,7 @@ public class PersonBeanIT {
 		System.out.println(personBean);
 		Assert.assertNotNull(personBean);
 	}
-	
+
 	@RunAsClient
 	@Test
 	public void afterDeployment() {
