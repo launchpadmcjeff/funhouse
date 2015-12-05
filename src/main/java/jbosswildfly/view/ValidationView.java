@@ -2,9 +2,9 @@ package jbosswildfly.view;
 
 import java.util.Date;
 
-import javax.inject.Named;
+import javax.enterprise.inject.Model;
 
-@Named
+@Model
 public class ValidationView {
 
 	public ValidationView() {

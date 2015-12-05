@@ -2,9 +2,9 @@ package jbosswildfly.view;
 
 import java.io.Serializable;
 
-import javax.inject.Named;
+import javax.enterprise.inject.Model;
 
-@Named
+@Model
 public class Bar implements Serializable
 {
 

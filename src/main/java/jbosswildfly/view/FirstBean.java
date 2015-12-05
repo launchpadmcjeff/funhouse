@@ -49,6 +49,7 @@ public class FirstBean {
 	}
 
 	public UIComponent getName() {
+		logBinder(name);
 		return name;
 	}
 
@@ -58,6 +59,7 @@ public class FirstBean {
 	}
 
 	public UIComponent getShowDialog1Btn() {
+		logBinder(showDialog1Btn);
 		return showDialog1Btn;
 	}
 
@@ -67,6 +69,7 @@ public class FirstBean {
 	}
 
 	public UIComponent getMsg() {
+		logBinder(msg);
 		return msg;
 	}
 
@@ -76,6 +79,7 @@ public class FirstBean {
 	}
 
 	public UIComponent getForm1() {
+		logBinder(form1);
 		return form1;
 	}
 
@@ -91,6 +95,7 @@ public class FirstBean {
 
 	public UIComponent getDialogBinding() {
 		System.out.println("FirstBean getDialogBinding called");
+		logBinder(dialogBinding);
 		return dialogBinding;
 	}
 
@@ -132,6 +137,7 @@ public class FirstBean {
 	}
 
 	public UIComponent getOkCommandButton() {
+		logBinder(okCommandButton);
 		return okCommandButton;
 	}
 

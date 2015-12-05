@@ -17,7 +17,10 @@
 		</h:inputText>
 		<h:commandButton value="submit" action="#{fooBean.action}" />
 		<h:outputText binding="#{fooBean.outputComponent}"
-			value="#{fooBean.outputValue}" />
+			value="#{fooBean.outputValue}">
+			<f:converter converterId="fooConverter" />
+			<f:validator validatorId="fooValidator" />
+		</h:outputText>
 		<h:messages />
 	</h:form>
 </body>

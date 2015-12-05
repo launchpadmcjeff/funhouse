@@ -1,8 +1,8 @@
 package jbosswildfly.view;
 
-import javax.inject.Named;
+import javax.enterprise.inject.Model;
 
-@Named
+@Model
 public class ConversionBean {
 
 	public ConversionBean() {
