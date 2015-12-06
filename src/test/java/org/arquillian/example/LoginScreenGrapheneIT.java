@@ -17,9 +17,12 @@ import org.jboss.arquillian.graphene.page.InitialPage;
 import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
+import org.jboss.shrinkwrap.api.Filters;
+import org.jboss.shrinkwrap.api.GenericArchive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
+import org.jboss.shrinkwrap.api.importer.ExplodedImporter;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -30,14 +33,15 @@ import org.openqa.selenium.support.FindBy;
 
 @RunWith(Arquillian.class)
 public class LoginScreenGrapheneIT {
+	private static final String LOGIN_JSF = "login.jsf";
 	private static final String USER_NAME = "demo";
 	private static final String USER_PASSWORD = "demo";
 
-	private static final String WEBAPP_SRC = "src/main/webapp";
+	private static final String WEBAPP_SRC = "src/main/webapp/io/jsflifecycle";
 
 	@Deployment(testable = false)
 	public static WebArchive createDeployment() {
-		return ShrinkWrap
+		WebArchive archive = ShrinkWrap
 				.create(WebArchive.class, "login.war")
 				.addClasses(Credentials.class, User.class,
 						LoginController.class)
@@ -47,23 +51,32 @@ public class LoginScreenGrapheneIT {
 				.addAsWebInfResource(
 						new StringAsset("<faces-config version=\"2.0\"/>"),
 						"faces-config.xml");
-
-		/*-
-		 * 
-		 * Same as above, but automatically pick up all the *.xhtml files in the microdeployment:
-		 return ShrinkWrap.create(WebArchive.class, "login.war")
-		.addClasses(Credentials.class, User.class, LoginController.class)
-		.merge(ShrinkWrap.create(GenericArchive.class).as(ExplodedImporter.class)
-		.importDirectory(WEBAPP_SRC).as(GenericArchive.class),
-		"/", Filters.include(".*\\.xhtml$"))
-		.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-		.addAsWebInfResource(
-		new StringAsset("<faces-config version=\"2.0\"/>"),
-		"faces-config.xml");
-		
-		 */
-
+		System.out.println(archive.toString(true));
+		return archive;
 	}
+
+	/**
+	 * Remember the Deployment(testable = false) annotation!
+	 * 
+	 * Same as createDeployment, but automatically pick up all the *.xhtml files
+	 * in the microdeployment:
+	 */
+//	public static WebArchive createDeploymentAll() {
+//		WebArchive archive = ShrinkWrap
+//				.create(WebArchive.class, "login.war")
+//				.addClasses(Credentials.class, User.class,
+//						LoginController.class)
+//				.merge(ShrinkWrap.create(GenericArchive.class)
+//						.as(ExplodedImporter.class).importDirectory(WEBAPP_SRC)
+//						.as(GenericArchive.class), "/",
+//						Filters.include(".*\\.xhtml$"))
+//				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+//				.addAsWebInfResource(
+//						new StringAsset("<faces-config version=\"2.0\"/>"),
+//						"faces-config.xml");
+//		System.out.println(archive.toString(true));
+//		return archive;
+//	}
 
 	@Drone
 	private WebDriver browser;
@@ -79,6 +92,7 @@ public class LoginScreenGrapheneIT {
 
 	@FindBy(id = "login")
 	private WebElement loginButton;
+
 	@FindBy(tagName = "li")
 	private WebElement facesMessage;
 
@@ -90,7 +104,7 @@ public class LoginScreenGrapheneIT {
 
 	@Test
 	public void should_login_successfully() {
-		browser.get(deploymentUrl.toExternalForm() + "login.jsf");
+		browser.get(deploymentUrl.toExternalForm() + LOGIN_JSF);
 		userName.sendKeys(USER_NAME);
 		password.sendKeys(USER_PASSWORD);
 
@@ -103,7 +117,7 @@ public class LoginScreenGrapheneIT {
 
 	@Test
 	public void should_login_successfully2() {
-		browser.get(deploymentUrl.toExternalForm() + "login.jsf");
+		browser.get(deploymentUrl.toExternalForm() + LOGIN_JSF);
 
 		userName.sendKeys(USER_NAME);
 		password.sendKeys(USER_PASSWORD);
@@ -117,7 +131,7 @@ public class LoginScreenGrapheneIT {
 
 	@Test
 	public void should_login_successfully3() {
-		browser.get(deploymentUrl.toExternalForm() + "login.jsf");
+		browser.get(deploymentUrl.toExternalForm() + LOGIN_JSF);
 
 		userName.sendKeys(USER_NAME);
 		password.sendKeys(USER_PASSWORD);
@@ -141,17 +155,19 @@ public class LoginScreenGrapheneIT {
 		homePage.assertOnHomePage();
 
 		homePage.whoAmI();
-		assertEquals(homePage.getUserName(), "You are signed in as " + USER_NAME + ".");
+		assertEquals(homePage.getUserName(), "You are signed in as "
+				+ USER_NAME + ".");
 	}
-	
+
 	@Test
 	public void should_login_successfully5(@InitialPage LoginPage loginPage) {
-		
+
 		LoginForm loginForm = loginPage.getLoginForm();
 		loginForm.login(USER_NAME, USER_PASSWORD);
 		homePage.assertOnHomePage();
-		
+
 		homePage.whoAmI();
-		assertEquals(homePage.getUserName(), "You are signed in as " + USER_NAME + ".");
+		assertEquals(homePage.getUserName(), "You are signed in as "
+				+ USER_NAME + ".");
 	}
 }

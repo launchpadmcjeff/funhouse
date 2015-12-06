@@ -3,6 +3,8 @@
 More tests
 Instrumentation - Are the @Stateless beans getting released?  I don't see any @PreDestroy methods getting called...
 
+Split up map examples
+
 
 
 

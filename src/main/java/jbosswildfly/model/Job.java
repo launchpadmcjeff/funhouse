@@ -14,6 +14,8 @@ import java.lang.Override;
 import java.math.BigDecimal;
 import jbosswildfly.model.Person;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.;
 
 @Entity
 public class Job implements Serializable
@@ -28,6 +30,7 @@ public class Job implements Serializable
    private int version;
 
    @Column
+   @NotNull(message="Foo Bar!")
    private String title;
 
    @Column

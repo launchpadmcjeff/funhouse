@@ -18,7 +18,7 @@ public class PersonBean implements Serializable {
 	@Inject
 	private Person person;
 
-	List<Person> persons;
+	private List<Person> persons;
 	
 	@Inject
 	private PersonRepo personRepo;

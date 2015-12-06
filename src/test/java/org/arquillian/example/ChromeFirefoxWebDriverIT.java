@@ -11,14 +11,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ChromeWebDriverIT {
+public class ChromeFirefoxWebDriverIT {
 
 	@Before
 	public void setUp() throws Exception {
 	}
 
 	@Test
-	public void testGoogleSearch() throws InterruptedException {
+	public void testGoogleSearchWithChrome() throws InterruptedException {
 		// Optional, if not specified, WebDriver will search your path for
 		// chromedriver.
 		System.setProperty("webdriver.chrome.driver",
@@ -35,12 +35,7 @@ public class ChromeWebDriverIT {
 	}
 	
 	@Test
-	public void testGoogleSearch2() throws InterruptedException {
-		// Optional, if not specified, WebDriver will search your path for
-		// chromedriver.
-		System.setProperty("webdriver.chrome.driver",
-				"/eclipse/chromedriver.exe");
-		
+	public void testGoogleSearchWithFirefox() throws InterruptedException {
 		WebDriver driver = new FirefoxDriver();
 
 		driver.get("http://www.google.com/xhtml");

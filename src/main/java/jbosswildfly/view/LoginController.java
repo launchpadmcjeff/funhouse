@@ -4,7 +4,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
-import jbosswildfly.repository.UserBean;
+import org.arquillian.example.UserBean;
 
 @Named(value = "loginController")
 @RequestScoped
