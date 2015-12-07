@@ -100,11 +100,11 @@
 			<artifactId>primefaces</artifactId>
 			<version>5.3</version>
 		</dependency>
-		<dependency>
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>all-themes</artifactId>
-			<version>1.0.10</version>
-		</dependency>
+		<dependency>  
+    <groupId>org.primefaces.extensions</groupId>  
+    <artifactId>all-themes</artifactId>   
+    <version>1.0.8</version>  
+</dependency> 
 		<dependency>
 			<groupId>org.jboss.spec.javax.faces</groupId>
 			<artifactId>jboss-jsf-api_2.1_spec</artifactId>

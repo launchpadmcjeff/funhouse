@@ -12,7 +12,8 @@ public class LoginController {
 
 //	String theme = "aristo";
 //	String theme = "cupertino";
-	String theme = "midnight";
+//	String theme = "midnight";
+	String theme = "afterdark";
 	
 	public String getTheme() {
 		System.out.println("LoginController theme: " + theme);
