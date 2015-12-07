@@ -51,7 +51,7 @@
 			</h:panelGrid>
 
 			<p:gmap id="geoGmap" widgetVar="geoMap" center="#{foo.centerGeoMap}"
-				zoom="2" type="ROADMAP" model="#{foo.geoModel}"
+				zoom="21" type="ROADMAP" model="#{foo.geoModel}"
 				style="width:100%;height:400px">
 				<p:ajax event="geocode" listener="#{foo.onGeocode}" update="@this" />
 			</p:gmap>
@@ -67,7 +67,7 @@
 			</h:panelGrid>
 
 			<p:gmap id="revGeoGmap" widgetVar="revGeoMap"
-				center="#{foo.centerRevGeoMap}" zoom="2" type="ROADMAP"
+				center="#{foo.centerRevGeoMap}" zoom="0" type="ROADMAP"
 				model="#{foo.revGeoModel}" style="width:100%;height:400px">
 				<p:ajax event="reverseGeocode" listener="#{foo.onReverseGeocode}"
 					update="@this" />

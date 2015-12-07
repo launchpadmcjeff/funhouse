@@ -10,6 +10,19 @@ import org.arquillian.example.UserBean;
 @RequestScoped
 public class LoginController {
 
+//	String theme = "aristo";
+//	String theme = "cupertino";
+	String theme = "midnight";
+	
+	public String getTheme() {
+		System.out.println("LoginController theme: " + theme);
+		return theme;
+	}
+
+	public void setTheme(String theme) {
+		this.theme = theme;
+	}
+
 	public LoginController() {
 		// TODO Auto-generated constructor stub
 	}

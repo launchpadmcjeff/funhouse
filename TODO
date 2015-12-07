@@ -1,11 +1,21 @@
 
 
 More tests
+
+More Drone tests and better tests and get Warp
+
 Instrumentation - Are the @Stateless beans getting released?  I don't see any @PreDestroy methods getting called...
 
 Split up map examples
 
+Fill out crud methods for entities
+
+i18n for messages and validation
+
+Add template
+
+LinkedIn, Twitter, Github integration
 
 
-
+load tests with JMeter?
 Loggin framework?
