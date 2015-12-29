@@ -5,11 +5,14 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 
 import jbosswildfly.model.Job;
 import jbosswildfly.repository.JobRepo;
+import jbosswildfly.LoggingInterceptor;
 
 @Model
+//@Interceptors({LoggingInterceptor.class})
 public class JobBean {
 
 	@Inject

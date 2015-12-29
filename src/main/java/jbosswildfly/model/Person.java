@@ -27,7 +27,7 @@ public class Person implements Serializable {
 	@Column
 	private String lastName;
 
-	@Column
+	@Column(name = "realperson")
 	private Boolean real;
 
 	@Column

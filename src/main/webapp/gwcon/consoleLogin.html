@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Demo</title>
+<link rel="stylesheet" href="consoleLogin.css">
+<script src="/jbosswildfly3/js/jquery-1.11.3.js"></script>
+<script src="consoleLogin.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="tabPanels">
+		<ul class="tabs">
+			<li data-rel="panel1" class="active">One</li>
+			<li data-rel="panel2">Two</li>
+			<li data-rel="panel3">Three</li>
+		</ul>
+		<div id="panel1" class="tabPanel active">
+			<div>
+				<input type="radio" name="endpoint" value="login" />login <input type="radio" name="endpoint" value="whoami" />whoami
+				<input type="radio" name="endpoint" value="service" />service <input type="radio" name="endpoint" value="myroles" />myroles
+				<input type="radio" name="endpoint" value="state" />state <input type="radio" name="endpoint" value="type" />type
+				<input type="radio" name="endpoint" value="metrics" />metrics
+			</div>
+			<div>
+				<input type="text" id="uname" name="uname" />
+			</div>
+			<div>
+				<input type="password" id="passwd" name="passwd" />
+			</div>
+			<div>
+				<input type="button" value="Login" id="login">
+			</div>
+		</div>
+		<div id="panel2" class="tabPanel">
+			<div>
+				<input type="radio" name="endpoint" value="login" />login <input type="radio" name="endpoint" value="whoami" />whoami
+				<input type="radio" name="endpoint" value="service" />service <input type="radio" name="endpoint" value="myroles" />myroles
+				<input type="radio" name="endpoint" value="state" />state <input type="radio" name="endpoint" value="type" />type
+				<input type="radio" name="endpoint" value="metrics" />metrics
+			</div>
+			<div>
+				<input type="text" id="uname" name="uname" />
+			</div>
+			<div>
+				<input type="password" id="passwd" name="passwd" />
+			</div>
+			<div>
+				<input type="button" value="Login" id="login">
+			</div>
+		</div>
+		<div id="panel3" class="tabPanel">
+		
+		</div>
+	</div>
+	
+	
+</body>
+</html>

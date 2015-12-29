@@ -3,14 +3,14 @@
   <persistence-unit name="jbosswildfly-persistence-unit" transaction-type="JTA">
     <description>Forge Persistence Unit</description>
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
+    <jta-data-source>java:jboss/datasources/mysql</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
     <property name="hibernate.hbm2ddl.auto" value="update"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.transaction.flush_before_completion" value="true"/>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
     </properties>
   </persistence-unit>
 </persistence>
