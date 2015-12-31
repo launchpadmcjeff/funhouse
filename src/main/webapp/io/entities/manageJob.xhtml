@@ -1,40 +1,75 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 <body>
 	<h:form id="manageJobForm">
 		<p:growl id="growl" life="2000" />
-		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-			<h:outputLabel for="title" value="Title: " />
-			<p:inputText id="title" value="#{jobBean.job.title}" />
-			<h:outputLabel for="description" value="Description: " />
-			<p:inputText id="description" value="#{jobBean.job.description}" />
-			<h:outputLabel for="salary" value="Salary: " />
-			<p:inputText id="salary" value="#{jobBean.job.salary}" />
+		<p:messages id="globalMessages" globalOnly="true" />
+		<p:panelGrid style="margin-bottom:10px" cellpadding="5">
+			<p:row>
+				<p:column>
+					<h:outputLabel for="title" value="Title: " />
+				</p:column>
+				<p:column>
+					<p:inputText id="title" value="#{jobBean.job.title}" />
+				</p:column>
+				<p:column>
+					<p:message for="title"></p:message>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column>
+					<h:outputLabel for="description" value="Description: " />
+				</p:column>
+				<p:column>
+					<p:inputText id="description" value="#{jobBean.job.description}" />
+				</p:column>
+				<p:column>
+					<p:message for="description"></p:message>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column>
+					<h:outputLabel for="salary" value="Salary: " />
+				</p:column>
+				<p:column>
+					<p:inputText id="salary" value="#{jobBean.job.salary}" />
+				</p:column>
+				<p:column>
+					<p:message for="salary"></p:message>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="3">
+					<p:commandButton value="Save" id="save" update="@form" process="title description salary @this"
+						action="#{jobBean.save}" styleClass="ui-priority-primary" />
+					<p:commandButton value="Delete" id="delete" update="@form" process="@this" action="#{jobBean.delete}"
+						styleClass="ui-priority-secondary" />
+					<p:commandButton value="Cancel" id="reset" type="reset" styleClass="ui-priority-secondary" />
+				</p:column>
+			</p:row>
+		</p:panelGrid>
 
-			<p:commandButton value="Submit" id="ajax" update="@form :jobTable"
-				action="#{jobBean.save}" styleClass="ui-priority-primary" />
-			<p:commandButton value="Reset" id="reset" type="reset"
-				styleClass="ui-priority-secondary" />
-		</h:panelGrid>
+		<p:dataTable id="jobTable" var="job" value="#{jobBean.jobs}" selectionMode="single" selection="#{jobBean.job}"
+			rowKey="#{job.id}">
+			<f:facet name="header">
+            Available Jobs
+        </f:facet>
+			<p:column headerText="ID">
+				<h:outputText value="#{job.id}"></h:outputText>
+			</p:column>
+			<p:column headerText="Version">#{job.version}</p:column>
+			<p:column headerText="Title">#{job.title}</p:column>
+			<p:column headerText="Description">
+				<h:outputText value="#{job.description}" escape="false"></h:outputText>
+			</p:column>
+			<p:column headerText="Salary">#{job.salary}</p:column>
+			<f:facet name="footer">
+				<p:commandButton process="jobTable" update=":manageJobForm:title :manageJobForm:salary :manageJobForm:description" icon="ui-icon-search" value="View" />
+			</f:facet>
+		</p:dataTable>
 	</h:form>
-
-
-	<p:dataTable id="jobTable" value="#{jobBean.jobs}" var="job">
-		<p:column headerText="ID">
-			<h:outputText value="#{job.id}"></h:outputText>
-		</p:column>
-		<p:column headerText="Version">#{job.version}</p:column>
-		<p:column headerText="Title">#{job.title}</p:column>
-		<p:column headerText="Description">
-			<h:outputText value="#{job.description}" escape="false"></h:outputText>
-		</p:column>
-		<p:column headerText="Salary">#{job.salary}</p:column>
-	</p:dataTable>
 </body>
 </html>

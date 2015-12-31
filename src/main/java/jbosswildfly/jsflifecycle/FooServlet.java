@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jbosswildfly.LoggingInterceptor;
 
-//@Interceptors({LoggingInterceptor.class})
+@Interceptors({LoggingInterceptor.class})
 @WebServlet(urlPatterns = { "/foowelcome" })
 public class FooServlet extends HttpServlet {
 	@Override
