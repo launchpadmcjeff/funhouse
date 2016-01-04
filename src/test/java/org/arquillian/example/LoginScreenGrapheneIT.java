@@ -10,6 +10,9 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.net.URL;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.findby.FindByJQuery;
@@ -61,22 +64,22 @@ public class LoginScreenGrapheneIT {
 	 * Same as createDeployment, but automatically pick up all the *.xhtml files
 	 * in the microdeployment:
 	 */
-//	public static WebArchive createDeploymentAll() {
-//		WebArchive archive = ShrinkWrap
-//				.create(WebArchive.class, "login.war")
-//				.addClasses(Credentials.class, User.class,
-//						LoginController.class)
-//				.merge(ShrinkWrap.create(GenericArchive.class)
-//						.as(ExplodedImporter.class).importDirectory(WEBAPP_SRC)
-//						.as(GenericArchive.class), "/",
-//						Filters.include(".*\\.xhtml$"))
-//				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-//				.addAsWebInfResource(
-//						new StringAsset("<faces-config version=\"2.0\"/>"),
-//						"faces-config.xml");
-//		System.out.println(archive.toString(true));
-//		return archive;
-//	}
+	// public static WebArchive createDeploymentAll() {
+	// WebArchive archive = ShrinkWrap
+	// .create(WebArchive.class, "login.war")
+	// .addClasses(Credentials.class, User.class,
+	// LoginController.class)
+	// .merge(ShrinkWrap.create(GenericArchive.class)
+	// .as(ExplodedImporter.class).importDirectory(WEBAPP_SRC)
+	// .as(GenericArchive.class), "/",
+	// Filters.include(".*\\.xhtml$"))
+	// .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+	// .addAsWebInfResource(
+	// new StringAsset("<faces-config version=\"2.0\"/>"),
+	// "faces-config.xml");
+	// System.out.println(archive.toString(true));
+	// return archive;
+	// }
 
 	@Drone
 	private WebDriver browser;
@@ -103,7 +106,7 @@ public class LoginScreenGrapheneIT {
 	private WebElement whoAmI;
 
 	@Test
-	public void should_login_successfully() {
+	public void should_login_successfully1() {
 		browser.get(deploymentUrl.toExternalForm() + LOGIN_JSF);
 		userName.sendKeys(USER_NAME);
 		password.sendKeys(USER_PASSWORD);

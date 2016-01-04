@@ -3,6 +3,7 @@ package jbosswildfly.view;
 import java.io.File;
 import java.net.URL;
 
+import jbosswildfly.jsflifecycle.FooPhaseListener;
 import jbosswildfly.model.Job;
 import jbosswildfly.repository.JobRepo;
 import jbosswildfly.view.JobBean;
@@ -43,13 +44,13 @@ public class AddMarkersViewIT {
 		WebArchive archive = ShrinkWrap
 				.create(WebArchive.class)
 				.addClass(AddMarkersView.class)
+				.addClass(FooPhaseListener.class)
 				.addAsLibraries(primefaces)
 				.addAsWebResource(new File(WEBAPP_SRC, "addMarkers.xhtml"))
 				.addAsWebInfResource("META-INF/persistence.xml",
 						"classes/META-INF/persistence.xml")
 				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-				.addAsWebInfResource("faces-config.xml",
-						"faces-config.xml");
+				.addAsWebInfResource(new File("src/main/webapp", "WEB-INF/faces-config.xml"));
 		System.out.println(archive.toString(true));
 		return archive;
 	}

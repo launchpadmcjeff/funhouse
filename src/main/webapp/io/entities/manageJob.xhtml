@@ -67,7 +67,7 @@
 			</p:column>
 			<p:column headerText="Salary">#{job.salary}</p:column>
 			<f:facet name="footer">
-				<p:commandButton process="jobTable" update=":manageJobForm:title :manageJobForm:salary :manageJobForm:description" icon="ui-icon-search" value="View" />
+				<p:commandButton id="view" process="jobTable" update=":manageJobForm:title :manageJobForm:salary :manageJobForm:description" icon="ui-icon-search" value="View" />
 			</f:facet>
 		</p:dataTable>
 	</h:form>

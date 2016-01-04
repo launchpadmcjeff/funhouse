@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import jbosswildfly.model.Job;
 
 import javax.inject.Inject;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
@@ -17,6 +19,7 @@ import javax.transaction.UserTransaction;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -133,4 +136,21 @@ public class JobIT {
 			return descriptions[(int) (Math.random() * descriptions.length)];
 		}
 	}
+
+	@ArquillianResource
+	private InitialContext context;
+
+	@Test
+	public void shouldBeAbleToGetContext() throws NamingException {
+		Object lookup = context.lookup("");
+		System.out.println(lookup);
+	}
+
+	@Test
+	public void shouldBeAbleToGetContext(
+			@ArquillianResource InitialContext context) throws NamingException {
+		Object lookup = context.lookup("");
+		System.out.println(lookup);
+	}
+
 }

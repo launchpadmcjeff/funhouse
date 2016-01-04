@@ -115,7 +115,6 @@ public class ManageJobChromeFirefoxWebDriverIT {
 				.pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 		driver.get(MANAGE_JOBS_URL);
-		System.out.println("ok");
 		for (int i = 0; i < 6; i++) {
 			WebElement tr = wait.until(new Function<WebDriver, WebElement>() {
 				public WebElement apply(WebDriver driver) {
@@ -124,16 +123,14 @@ public class ManageJobChromeFirefoxWebDriverIT {
 				}
 			});
 			tr.click();
-			System.out.println("ok");
 			WebElement viewBtn = wait
 					.until(new Function<WebDriver, WebElement>() {
 						public WebElement apply(WebDriver driver) {
 							return driver.findElement(By
-									.id("manageJobForm:jobTable:j_idt36"));
+									.id("manageJobForm:jobTable:view"));
 						}
 					});
 			viewBtn.click();
-			System.out.println("ok");
 			WebElement delBtn = wait
 					.until(new Function<WebDriver, WebElement>() {
 						public WebElement apply(WebDriver driver) {
@@ -142,7 +139,6 @@ public class ManageJobChromeFirefoxWebDriverIT {
 						}
 					});
 			delBtn.click();
-			System.out.println("ok");
 			Thread.sleep(500);
 			waitUntilAjaxRequestCompletes(driver);
 		}
