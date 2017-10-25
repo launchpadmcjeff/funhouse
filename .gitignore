@@ -1,7 +1,6 @@
-/target/
-target
-.settings/*
-!.settings/.jsdtscope
+.tern-project
+.settings
 .project
 .classpath
 /phantomjsdriver.log
+target/

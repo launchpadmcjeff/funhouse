@@ -8,7 +8,7 @@
 <BODY>
 
 <H1>WebApp JSP Snoop page</H1>
-<img src="images/jbosscorp_logo.png">
+<img src="images/wildflylogo_200x60.png">
 
 <h2>JVM Memory Monitor</h2>
  

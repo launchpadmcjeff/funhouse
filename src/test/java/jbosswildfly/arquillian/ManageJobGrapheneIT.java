@@ -54,7 +54,8 @@ public class ManageJobGrapheneIT {
 				.addClasses(JobBean.class, Job.class, JobRepo.class,
 						LoginController.class, UserBean.class)
 				.addAsLibraries(primefaces)
-				.addAsWebResource(new File(WEBAPP_SRC, "manageJob.xhtml"))
+				/*.addAsWebResource(new File(WEBAPP_SRC, "manageJob.xhtml"))*/
+				.addAsWebResource(new File(WEBAPP_SRC, "manageJob.xhtml"), "io/entities/manageJob.xhtml")
 				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
 				.addAsWebInfResource("META-INF/persistence.xml",
 						"classes/META-INF/persistence.xml")
@@ -80,7 +81,8 @@ public class ManageJobGrapheneIT {
 	@FindBy(id = "manageJobForm:save")
 	private GrapheneElement save;
 
-	@FindBy(xpath = "//tbody[@id='manageJobForm:jobTable_data']/tr/td")
+//	@FindBy(xpath = "//tbody[@id='manageJobForm:jobTable_data']/tr/td")
+	@FindBy(xpath = "//tbody[@id='manageJobForm:jobTable_data']/tr[1]")
 	private GrapheneElement tr;
 
 	@FindBy(id = "manageJobForm:jobTable:view")
@@ -91,7 +93,7 @@ public class ManageJobGrapheneIT {
 
 	@Test
 	public void testBasic() throws InterruptedException {
-		browser.get(deploymentUrl.toExternalForm() + MANAGE_JOB_JSF);
+		browser.get(deploymentUrl.toExternalForm() + "io/entities/" + MANAGE_JOB_JSF);
 		title.clear();
 		title.sendKeys("Coach");
 		description.clear();
@@ -104,7 +106,8 @@ public class ManageJobGrapheneIT {
 
 	@Test
 	public void testDelete() {
-		browser.get(deploymentUrl.toExternalForm() + MANAGE_JOB_JSF);
+		browser.get(deploymentUrl.toExternalForm() + "io/entities/" + MANAGE_JOB_JSF);
+//		browser.get(deploymentUrl.toExternalForm() + MANAGE_JOB_JSF);
 		for (int i = 0; i < 3; i++) {
 			tr.click();
 			guardAjax(viewBtn).click();

@@ -20,6 +20,7 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +30,7 @@ import org.openqa.selenium.support.FindBy;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.*;
 
+@Ignore("In implementation")
 @RunWith(Arquillian.class)
 public class AddMarkersViewIT {
 

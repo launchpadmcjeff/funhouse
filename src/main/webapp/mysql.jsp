@@ -13,7 +13,7 @@
 Connection result = null;
 try {
     Context initialContext = new InitialContext();
-    DataSource datasource = (DataSource)initialContext.lookup("java:jboss/datasources/MySQLDS");
+    DataSource datasource = (DataSource)initialContext.lookup("java:jboss/datasources/mysql");
     result = datasource.getConnection();
     Statement stmt = result.createStatement() ;
     String query = "select * from names;" ;
