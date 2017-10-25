@@ -13,7 +13,7 @@
 <h2>JVM Memory Monitor</h2>
  
  
-<table border="0" width="100%">
+<table style="width: 100%; border: 0px">
  
 <tbody>
 <tr>
@@ -49,12 +49,12 @@
 </tbody>
 </table>
 <%
-Iterator iter = ManagementFactory.getMemoryPoolMXBeans().iterator();
+Iterator<MemoryPoolMXBean> iter = ManagementFactory.getMemoryPoolMXBeans().iterator();
 while (iter.hasNext()) {
 MemoryPoolMXBean item = (MemoryPoolMXBean) iter.next();
 %>
  
-<table style="border: 1px #98AAB1 solid;" border="0" width="100%">
+<table style="border: 1px #98AAB1 solid; width=100%" >
  
 <tbody>
 <tr>
@@ -159,7 +159,7 @@ MemoryPoolMXBean item = (MemoryPoolMXBean) iter.next();
 </TABLE>
 
 <%
-	Enumeration e = request.getHeaderNames();
+	Enumeration<String> e = request.getHeaderNames();
 	if(e != null && e.hasMoreElements()) {
 %>
 <H2>Request headers</H2>
